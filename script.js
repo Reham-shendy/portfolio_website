@@ -33,9 +33,9 @@ function generateProjectCard({ projectName, projectDescription, tags }) {
         </div>`;
 }
 
-const projectsSection = document.querySelector(".projects-section");
+const projectsPart = document.querySelector(".projects-part");
 
-projectsSection.insertAdjacentHTML(
+projectsPart.insertAdjacentHTML(
   "beforeend",
   projects
     .map((project) => {

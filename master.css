@@ -1,24 +1,41 @@
 :root {
-  --text-color: #f6dbc0;
+  --text-color: #e8b770;
   --dark-color: #241423;
   --secodary-color: #f4eff9;
-  --main-color: #ac99ac;
-  --body-color: #f4eff9;
+  --main-color: #1b1d2b;
+  --body-color: #12131c;
   --light-font-color: #f6dbc0;
   --transition-duration: 0.3s;
+  /* =============== */
+  --bg: #12131c;
+  --bg-panel: #1b1d2b;
+  --bg-panel-raised: #212437;
+  --text: #f0eee6;
+  --text-dim: #a6a8bd;
+  --text-faint: #6c6e85;
+  --accent-gold: #e8b770;
+  --accent-teal: #6fbfa0;
+  --line: rgba(240, 238, 230, 0.1);
+  --line-strong: rgba(240, 238, 230, 0.18);
+  --radius: 10px;
+  --display: "Fraunces", Georgia, serif;
+  --body: "IBM Plex Sans", -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 }
 body {
   padding: 0;
   margin: 0;
   background-color: var(--body-color);
+  color: var(--text);
 }
 .nav-bar {
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #413043;
-  padding: 01px;
+  background: rgba(18, 19, 28, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
   margin-bottom: 10px;
 }
 .nav-bar ul {
@@ -29,10 +46,11 @@ body {
 }
 .nav-bar ul li {
   list-style: none;
+  border: 1px solid var(--secodary-color);
 }
 .nav-bar ul a {
   text-decoration: none;
-  color: var(--light-font-color);
+  color: var(--text-color);
   font-size: bold;
 }
 .main-container {
@@ -40,10 +58,10 @@ body {
   padding: 10px 20px;
   border-radius: 10px;
   margin: auto;
-  background-color: var(--main-color);
+  background-color: var(--bg);
 }
 .about-section h1 {
-  color: var(--dark-color);
+  color: var(--accent-gold);
 }
 .about-section .buttons button {
   border: none;
@@ -65,15 +83,14 @@ body {
   border-top: 1px solid var(--dark-color);
 }
 .projects-section h2 {
-  color: var(--dark-color);
+  color: var(--accent-gold);
   font-size: 1.6rem;
 }
 .projects-part .project-card {
-  background-color: var(--body-color);
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid var(--dark-color);
-  color: var(--dark-color);
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
   transition: transform var(--transition-duration) ease;
 }
 .projects-part .project-card:hover {
@@ -83,19 +100,26 @@ body {
 .projects-part .project-card .project-name {
   font-weight: bold;
   font-size: 1.3rem;
-  margin: 0;
+  padding-bottom: 5px;
 }
 .projects-part .project-card .about-project {
-  font-size: 1rem;
+  color: var(--text-dim);
+  font-size: 0.93rem;
+  margin: 0 0 14px;
 }
 .projects-part .project-card .tags ul {
+  padding-top: 10px;
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 .projects-part .project-card .tags ul li {
   list-style: none;
-  color: var(--dark-color);
-  background-color: var(--main-color);
   padding: 5px 7px;
   border-radius: 7px;
+  /*  */
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-faint) #6c6e85;
+  border: 1px solid var(--line);
 }

@@ -10,10 +10,10 @@
   <body>
     <nav class="nav-bar">
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li class="active"><a href="#about">About</a></li>
+        <li class=""><a href="#projects">Projects</a></li>
+        <li class=""><a href="#skills">Skills</a></li>
+        <li class=""><a href="#contact">Contact</a></li>
       </ul>
     </nav>
     <div class="main-container">
@@ -24,8 +24,12 @@
           using React. Currently looking for a remote frontend internship.
         </p>
         <div class="buttons">
-          <button class="about-button first">View projects</button>
-          <button class="about-button second">Get in Touch</button>
+          <button class="about-button first">
+            <a href="#projects">View projects</a>
+          </button>
+          <button class="about-button second">
+            <a href="#contact">Get in Touch</a>
+          </button>
         </div>
         <div class="context">
           <p>
@@ -44,7 +48,17 @@
         <div class="projects-part"></div>
       </section>
       <section class="skills-section" id="skills"></section>
-      <section class="contact-section" id="contact"></section>
+      <section class="contact-section" id="contact">
+        <div class="contact-card">  
+               <h2>My Contact Info: </h2>   
+            <ul>
+              <li><span>Email: </span><a href="">link styling test,</a></li>
+              <li><span>LinkedIn: </span><a href="">link styling test,</a></li>
+              <li><span>GitHub: </span><a href="">link styling test</a></li>
+          </ul>
+          </div>
+        </div>
+      </section>
     </div>
   </body>
 </html>

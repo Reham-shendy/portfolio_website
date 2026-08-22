@@ -1,12 +1,5 @@
 :root {
-  --text-color: #e8b770;
-  --dark-color: #241423;
-  --secodary-color: #f4eff9;
-  --main-color: #1b1d2b;
-  --body-color: #12131c;
-  --light-font-color: #f6dbc0;
   --transition-duration: 0.3s;
-  /* =============== */
   --bg: #12131c;
   --bg-panel: #1b1d2b;
   --bg-panel-raised: #212437;
@@ -25,7 +18,7 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: var(--body-color);
+  background-color: var(--bg);
   color: var(--text);
 }
 .nav-bar {
@@ -33,28 +26,58 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(18, 19, 28, 0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
   margin-bottom: 10px;
+  z-index: 200;
 }
+
 .nav-bar ul {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 30px;
+  margin: 0;
+  padding: 0;
 }
+
 .nav-bar ul li {
   list-style: none;
-  border: 1px solid var(--secodary-color);
+  border-right: 1px solid var(--line-strong);
 }
+
 .nav-bar ul a {
+  display: block;
+  padding: 12px 24px;
   text-decoration: none;
-  color: var(--text-color);
-  font-size: bold;
+  color: var(--text-faint);
+  font-family: var(--mono);
+  font-size: 14px;
+  transition: all var(--transition-duration) ease;
+  position: relative;
+}
+
+.nav-bar ul a:hover {
+  color: var(--text-dim);
+  background: var(--bg-panel);
+}
+
+.nav-bar ul li.active a {
+  color: var(--accent-gold);
+  background: var(--bg-panel-raised);
+}
+
+.nav-bar ul li.active a::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-gold);
 }
 .main-container {
-  width: 80%;
+  width: 70%;
   padding: 10px 20px;
   border-radius: 10px;
   margin: auto;
@@ -63,17 +86,54 @@ body {
 .about-section h1 {
   color: var(--accent-gold);
 }
+
 .about-section .buttons button {
-  border: none;
-  padding: 10px 20px;
-  margin-right: 10px;
-  border-radius: 10px;
-  color: var(--dark-color);
-  font-weight: bold;
-  background-color: #fbf4eb;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: var(--mono);
+  font-size: 13.5px;
+  padding: 11px 20px;
+  border-radius: 7px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+  border: 1px solid var(--line-strong);
   cursor: pointer;
 }
+.about-section .buttons button a {
+  text-decoration: none;
+  color: inherit;
+}
+.about-section .buttons button:hover {
+  transform: translateY(-1px);
+}
+.about-section .buttons .first {
+  background: var(--accent-gold);
+  color: #16171f;
+  border-color: var(--accent-gold);
+  font-weight: 500;
+  margin-right: 20px;
+}
+.about-section .buttons .first:hover {
+  background: #edc385;
+}
+
+.about-section .buttons .second {
+  background-color: transparent;
+  color: var(--text-dim);
+  border: 1px solid var(--line-strong);
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease;
+}
+.about-section .buttons .second:hover {
+  color: var(--text);
+  border-color: var(--text-dim);
+}
+
 .projects-part {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -117,9 +177,42 @@ body {
   list-style: none;
   padding: 5px 7px;
   border-radius: 7px;
-  /*  */
   font-family: var(--mono);
   font-size: 11px;
   color: var(--text-faint) #6c6e85;
   border: 1px solid var(--line);
+}
+
+.contact-section .contact-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: transform var(--transition-duration) ease;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.contact-section .contact-card h2 {
+  color: var(--accent-gold);
+}
+
+.contact-section .contact-card li {
+  margin-top: 20px;
+  list-style: none;
+  color: var(--text);
+}
+.contact-section .contact-card li span {
+  font-family: var(--mono);
+  color: var(--text-dim);
+}
+.contact-section .contact-card li a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.contact-section .contact-card li a:hover {
+  transform: translateY(-2px);
+  color: var(--accent-gold);
+  text-decoration: underline;
 }

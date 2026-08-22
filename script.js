@@ -43,3 +43,13 @@ projectsPart.insertAdjacentHTML(
     })
     .join(""),
 );
+
+const navLinks = document.querySelectorAll(".nav-bar li");
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    document.querySelector(".nav-bar li.active")?.classList.remove("active");
+
+    link.classList.add("active");
+  });
+});

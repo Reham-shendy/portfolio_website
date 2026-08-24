@@ -15,30 +15,17 @@
   --body: "IBM Plex Sans", -apple-system, sans-serif;
   --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 }
+
 body {
-  padding: 0;
-  margin: 0;
   background-color: var(--bg);
   color: var(--text);
+  font-family: var(--body);
 }
+
 .nav-bar {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
   background: var(--bg);
   border-top: 1px solid var(--line-strong);
   border-bottom: 1px solid var(--line-strong);
-  margin-bottom: 10px;
-  z-index: 200;
-}
-
-.nav-bar ul {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 0;
-  padding: 0;
 }
 
 .nav-bar ul li {
@@ -76,35 +63,40 @@ body {
   height: 2px;
   background-color: var(--accent-gold);
 }
-.main-container {
-  width: 70%;
-  padding: 10px 20px;
-  border-radius: 10px;
-  margin: auto;
-  background-color: var(--bg);
-}
-.about-section {
-  display: flex;
-  justify-content: space-between;
-}
-.about-section .info {
-  width: 70%;
-}
-.about-section .user-icon {
-  width: 20%;
-  margin-right: 50px;
-}
 
-.about-section h1 {
+h1,
+h2 {
   color: var(--accent-gold);
 }
 
-.about-section .buttons button {
+#projects,
+#skills {
+  border-top: 1px solid var(--line);
+}
+
+.user-logo {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--line-strong);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-duration) ease;
+}
+
+.user-logo:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-gold);
+}
+.track {
+  color: var(--text-dim);
+}
+
+.about-button {
   font-family: var(--mono);
   font-size: 13.5px;
   padding: 11px 20px;
   border-radius: 7px;
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -115,120 +107,125 @@ body {
   border: 1px solid var(--line-strong);
   cursor: pointer;
 }
-.about-section .buttons button a {
-  text-decoration: none;
-  color: inherit;
-}
-.about-section .buttons button:hover {
+
+.about-button:hover {
   transform: translateY(-1px);
 }
-.about-section .buttons .first {
+
+.about-button.first {
   background: var(--accent-gold);
   color: #16171f;
   border-color: var(--accent-gold);
   font-weight: 500;
-  margin-right: 20px;
 }
-.about-section .buttons .first:hover {
+
+.about-button.first:hover {
   background: #edc385;
 }
 
-.about-section .buttons .second {
+.about-button.second {
   background-color: transparent;
   color: var(--text-dim);
   border: 1px solid var(--line-strong);
-  transition:
-    transform 0.15s ease,
-    border-color 0.15s ease;
 }
-.about-section .buttons .second:hover {
+
+.about-button.second:hover {
   color: var(--text);
   border-color: var(--text-dim);
 }
-
-.projects-part {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-.projects-section {
-  border-top: 1px solid var(--dark-color);
-}
-.projects-section h2 {
-  color: var(--accent-gold);
-  font-size: 1.6rem;
-}
-.projects-part .project-card {
+.project-card,
+.skills-card,
+.contact-card {
   background: var(--bg-panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 22px;
-  transition: transform var(--transition-duration) ease;
+  height: 100%;
+  transition:
+    transform var(--transition-duration) ease,
+    box-shadow var(--transition-duration) ease;
 }
-.projects-part .project-card:hover {
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+
+.project-card:hover {
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
   transform: translate(1px, -3px);
 }
-.projects-part .project-card .project-name {
+
+.project-name {
   font-weight: bold;
   font-size: 1.3rem;
   padding-bottom: 5px;
+  color: var(--text);
 }
-.projects-part .project-card .about-project {
+
+.about-project {
   color: var(--text-dim);
   font-size: 0.93rem;
   margin: 0 0 14px;
 }
-.projects-part .project-card .tags ul {
-  padding-top: 10px;
+
+.tags ul {
+  padding: 0;
+  margin: 0;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
-.projects-part .project-card .tags ul li {
+
+.tags ul li {
   list-style: none;
   padding: 5px 7px;
   border-radius: 7px;
   font-family: var(--mono);
   font-size: 11px;
-  color: var(--text-faint) #6c6e85;
+  color: var(--text-faint);
   border: 1px solid var(--line);
 }
 
-.contact-section .contact-card {
-  background: var(--bg-panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 22px;
-  transition: transform var(--transition-duration) ease;
-  margin-top: 80px;
-  margin-bottom: 80px;
+.skills-card .progress {
+  background-color: var(--line-strong);
+  border-radius: 4px;
 }
-.contact-section .contact-card h2 {
-  color: var(--accent-gold);
+.skills-card .custom-progress {
+  background-color: var(--accent-teal);
+}
+.skill-item span {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--text-dim);
 }
 
-.contact-section .contact-card li {
-  margin-top: 20px;
-  list-style: none;
+.contact-card li {
   color: var(--text);
 }
-.contact-section .contact-card li span {
+
+.contact-card li span {
   font-family: var(--mono);
   color: var(--text-dim);
 }
-.contact-section .contact-card li a {
+
+.contact-card li a {
   text-decoration: none;
   color: inherit;
   display: inline-block;
   transition: all 0.3s ease;
 }
-.contact-section .contact-card li a:hover {
+
+.contact-card li a:hover {
   transform: translateY(-2px);
   color: var(--accent-gold);
   text-decoration: underline;
 }
-.user-icon {
-  color: var(--text-dim);
-  font-size: 15rem;
+
+.more-info {
+  color: var(--text);
+}
+.demo {
+  color: var(--accent-gold);
+}
+.demo:hover {
+  background-color: var(--accent-gold);
+}
+.demo:hover > i,
+.demo:hover > a {
+  color: var(--bg-panel);
 }

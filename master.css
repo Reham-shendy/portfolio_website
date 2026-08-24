@@ -83,6 +83,18 @@ body {
   margin: auto;
   background-color: var(--bg);
 }
+.about-section {
+  display: flex;
+  justify-content: space-between;
+}
+.about-section .info {
+  width: 70%;
+}
+.about-section .user-icon {
+  width: 20%;
+  margin-right: 50px;
+}
+
 .about-section h1 {
   color: var(--accent-gold);
 }
@@ -215,4 +227,8 @@ body {
   transform: translateY(-2px);
   color: var(--accent-gold);
   text-decoration: underline;
+}
+.user-icon {
+  color: var(--text-dim);
+  font-size: 15rem;
 }

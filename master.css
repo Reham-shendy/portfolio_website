@@ -15,6 +15,11 @@
   --body: "IBM Plex Sans", -apple-system, sans-serif;
   --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 }
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
 body {
   background-color: var(--bg);
@@ -62,6 +67,15 @@ body {
   width: 100%;
   height: 2px;
   background-color: var(--accent-gold);
+}
+.nav-bar ul a {
+  padding: 10px 12px;
+}
+
+@media (min-width: 768px) {
+  .nav-bar ul a {
+    padding: 12px 24px;
+  }
 }
 
 h1,
